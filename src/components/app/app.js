@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { Component } from "react";
 import AppInfo from "../app-info/app-info";
 import SearchPanel from "../search-panel/search-panel";
 import AppFilter from "../app-filter/app-filter";
@@ -8,30 +7,51 @@ import EmployeesAddForm from "../employees-add-form/employees-add-form";
 
 import "./app.css";
 
-// Вынесенные неизменяемые данные
-const INITIAL_DATA = [
-  { name: "Igor", salary: 800, increase: false, id: 1 },
-  { name: "Alex", salary: 3000, increase: true, id: 2 },
-  { name: "Serg", salary: 15000, increase: false, id: 3 },
-];
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [
+        { name: "Igor", salary: 800, increase: false, id: 1 },
+        { name: "Alex", salary: 3000, increase: true, id: 2 },
+        { name: "Serg", salary: 15000, increase: false, id: 3 },
+      ],
+    };
+  }
 
-function App() {
-  return (
-    <div className="app">
-      <AppInfo />
+  deleteItem = (id) => {
+    this.setState(({ data }) => {
+      return {
+        data: data.filter((item) => item.id !== id),
+      };
+    });
+  };
 
-      <div className="search-panel">
-        <SearchPanel />
-        <AppFilter />
+  addItem = ({ name, salary }) => {          // ← НОВЫЙ МЕТОД
+    const newId = Math.max(...this.state.data.map((item) => item.id), 0) + 1;
+    this.setState(({ data }) => ({
+      data: [
+        ...data,
+        { name, salary, increase: false, id: newId },
+      ],
+    }));
+  };
+
+  render() {
+    return (
+      <div className="app">
+        <AppInfo />
+
+        <div className="search-panel">
+          <SearchPanel />
+          <AppFilter />
+        </div>
+
+        <EmployeesList data={this.state.data} onDelete={this.deleteItem} />
+        <EmployeesAddForm onAdd={this.addItem} />  {/* ← ДОБАВЛЕНО */}
       </div>
-
-      <EmployeesList data={INITIAL_DATA} />
-      <EmployeesAddForm />
-    </div>
-  );
+    );
+  }
 }
-
-// PropTypes для валидации (если будут пропсы)
-App.propTypes = {};
 
 export default App;
