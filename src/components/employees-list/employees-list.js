@@ -4,11 +4,10 @@ import "./employees-list.css";
 
 const EmployeesList = ({ data, onDelete }) => {
   const elements = data.map((item) => {
-    const { id, ...itemProps } = item;
     return (
       <EmployeesListItem
-        key={id}
-        onDelete={() => onDelete(id)}
+        key={item.id}                    // ← item.id вместо id
+        onDelete={() => onDelete(item.id)}  // ← item.id вместо id
         {...item}
       />
     );

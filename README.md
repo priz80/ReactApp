@@ -1,15 +1,14 @@
 # Employees App
 
-> Приложение для учёта сотрудников компании
+> Приложение для управления списком сотрудников компании
 
-React-приложение для управления списком сотрудников с возможностью поиска, фильтрации, увеличения зарплаты и добавления новых сотрудников.
+React-приложение для управления списком сотрудников с возможностью поиска, фильтрации, увеличения зарплаты, добавления новых сотрудников и отметки избранных.
 
 ## Стек технологий
 
-- **React 18** — UI-библиотека (Functional Components + Class Components)
+- **React 18** — UI-библиотека (Class Components)
 - **Bootstrap 5** — стилизация компонентов
 - **Font Awesome 5** — иконки
-- **React DOM 18** — рендеринг через `createRoot`
 
 ## Структура проекта
 
@@ -34,17 +33,25 @@ src/
 | **AppInfo** | Информация о компании |
 | **SearchPanel** | Поиск по имени |
 | **AppFilter** | Фильтры: все / на повышение / З/П > 1000$ |
-| **EmployeesList** | Рендер списка |
+| **EmployeesList** | Рендер списка сотрудников |
 | **EmployeesListItem** | Карточка: имя, З/П, повышение, лайк |
-| **EmployeesAddForm** | Форма добавления сотрудника |
+| **EmployeesAddForm** | Форма добавления нового сотрудника |
 
 ## Установка и запуск
 
 ```bash
-npm install
-npm start          # Dev-сервер (localhost:3000)
-npm run build      # Production-сборка
-npm test           # Тесты
+npm install           # Установка зависимостей
+npm start             # Dev-сервер (localhost:3000)
+npm run build         # Production-сборка (папка build/)
+npm test              # Тесты
+```
+
+### Запуск production-сборки
+
+```bash
+npm run build
+npm install -g serve
+serve -s build        # Запуск на localhost:3000
 ```
 
 ## Начальные данные
