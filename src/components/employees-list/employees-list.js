@@ -1,5 +1,15 @@
+import { styled } from "styled-components";
 import EmployeesListItem from "../employees-list-item/employees-list-item";
-import "./employees-list.css";
+
+const List = styled.ul`
+  margin-top: 30px;
+  background-color: #3d5a80;
+  border-radius: 4px;
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  list-style: none;
+  padding: 0;
+`;
 
 const EmployeesList = ({ data, onDelete, onToggleProp, onSalaryChange }) => {
   const elements = data.map((item) => {
@@ -16,7 +26,7 @@ const EmployeesList = ({ data, onDelete, onToggleProp, onSalaryChange }) => {
     );
   });
 
-  return <ul className="app-list list-group">{elements}</ul>;
+  return <List>{elements}</List>;
 };
 
 export default EmployeesList;
