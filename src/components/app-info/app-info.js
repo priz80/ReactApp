@@ -14,7 +14,8 @@ justify-content: space-between;
 `;
 
 const Title = styled.h1`
-  margin-bottom: 15px;
+  margin-bottom: 50px;
+  text-align: center;
 `;
 
 const StatsRow = styled.div`

@@ -7,26 +7,35 @@ class EmployeesAddForm extends Component {
     this.state = {
       name: "",
       salary: "",
+      nameError: "",
     };
   }
 
   onValueChange = (e) => {
+    const { name, value } = e.target;
+    let nameError = "";
+
+    if (name === "name" && value.length > 0 && value.length < 3) {
+      nameError = "Минимум 3 символа";
+    }
+
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
+      nameError,
     });
   };
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { name, salary } = this.state;
-    if (name.trim() && salary) {
+    const { name, salary, nameError } = this.state;
+    if (!nameError && name.trim() && salary) {
       this.props.onAdd({ name: name.trim(), salary: Number(salary) });
-      this.setState({ name: "", salary: "" });
+      this.setState({ name: "", salary: "", nameError: "" });
     }
   };
 
   render() {
-    const { name, salary } = this.state;
+    const { name, salary, nameError } = this.state;
     return (
       <div className="app-add-form">
         <h3>Добавьте нового сотрудника</h3>
@@ -41,6 +50,11 @@ class EmployeesAddForm extends Component {
             onChange={this.onValueChange}
             id="username"
           />
+          {nameError && (
+            <span style={{ color: "red", fontSize: "0.85rem" }}>
+              {nameError}
+            </span>
+          )}
           <label for="salary">Заработная плата: </label>
           <input
             type="number"
