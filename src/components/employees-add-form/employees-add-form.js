@@ -31,21 +31,25 @@ class EmployeesAddForm extends Component {
       <div className="app-add-form">
         <h3>Добавьте нового сотрудника</h3>
         <form className="add-form d-flex" onSubmit={this.onSubmit}>
+          <label for="username">Имя cотрудника:</label>
           <input
             type="text"
             className="form-control new-post-label"
-            placeholder="Как его зовут?"
+            placeholder="Имя"
             name="name"
             value={name}
             onChange={this.onValueChange}
+            id="username"
           />
+          <label for="salary">Заработная плата: </label>
           <input
             type="number"
             className="form-control new-post-label"
-            placeholder="З/П в $"
+            placeholder="$$$"
             name="salary"
             value={salary}
             onChange={this.onValueChange}
+            id="salary"
           />
           <button type="submit" className="btn btn-outline-light">
             Добавить
