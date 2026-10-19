@@ -43,7 +43,6 @@ src/
 npm install           # Установка зависимостей
 npm start             # Dev-сервер (localhost:3000)
 npm run build         # Production-сборка (папка build/)
-npm test              # Тесты
 ```
 
 ### Запуск production-сборки
