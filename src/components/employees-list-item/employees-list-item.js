@@ -6,6 +6,7 @@ const EmployeesListItem = (props) => {
     salary,
     onDelete,
     onToggleProp,
+    onSalaryChange,
     increase,
     onLike,
   } = props;
@@ -28,7 +29,8 @@ const EmployeesListItem = (props) => {
       <input
         type="text"
         className="list-group-item-input"
-        defaultValue={salary + "$"}
+        value={salary + "$"}
+        onChange={(e) => onSalaryChange(e.target.value.replace("$", ""))}
       />
       <div className="d-flex justify-content-center align-items-center">
         <button
