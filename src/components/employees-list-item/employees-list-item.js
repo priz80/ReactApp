@@ -16,6 +16,10 @@ const ListItem = styled.li`
     .list-group-item-input {
       color: #e09f3e;
     }
+
+    .btn-cookie {
+      color: green;
+    }
   }
 
   &.like {
