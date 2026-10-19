@@ -7,6 +7,7 @@ React-приложение для управления списком сотру
 ## Стек технологий
 
 - **React 18** — UI-библиотека (Class Components)
+- **styled-components** — CSS-in-JS стилизация
 - **Bootstrap 5** — стилизация компонентов
 - **Font Awesome 5** — иконки
 
