@@ -35,10 +35,8 @@ const AppInfo = ({ increased, employees }) => {
       <StatContainer>
       <StatsRow>
         <span>Общее число сотрудников: {employees}</span>
-        {/* <span>Премию получат: {increased}</span> */}
       </StatsRow>
       <StatsRow>
-        {/* <span>Общее число сотрудников: {employees}</span> */}
         <span>Премию получат: {increased}</span>
       </StatsRow>
       </StatContainer>
