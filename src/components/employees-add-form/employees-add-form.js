@@ -38,7 +38,7 @@ class EmployeesAddForm extends Component {
     const { name, salary, nameError } = this.state;
     return (
       <div className="app-add-form">
-        <h3>Добавьте нового сотрудника</h3>
+        <h3>Добавить нового сотрудника</h3>
         <form className="add-form d-flex" onSubmit={this.onSubmit}>
           <label for="username">Имя cотрудника:</label>
           <input
