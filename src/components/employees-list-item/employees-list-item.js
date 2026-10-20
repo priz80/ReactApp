@@ -12,9 +12,13 @@ const ListItem = styled.li`
   }
 
   &.increase {
-    .list-group-item-label,
-    .list-group-item-input {
+    .list-group-item-label {
       color: #e09f3e;
+      font-weight: bold;
+    }
+    .list-group-item-input {
+      color: green;
+      font-weight: bold;
     }
 
     .btn-cookie {
@@ -115,7 +119,11 @@ const EmployeesListItem = (props) => {
         >
           <i className="fas fa-cookie"></i>
         </CookieButton>
-        <TrashButton type="button" className="btn-trash btn-sm" onClick={onDelete}>
+        <TrashButton
+          type="button"
+          className="btn-trash btn-sm"
+          onClick={onDelete}
+        >
           <i className="fas fa-trash"></i>
         </TrashButton>
         <StarIcon className="fas fa-star"></StarIcon>
